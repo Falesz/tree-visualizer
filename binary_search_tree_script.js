@@ -1,35 +1,52 @@
+// ---------------------------------------------------------------------------------------------------------
+// Declarations and initializations
+
 const treeCanvas = document.getElementById("treeCanvas");
 const treeCanvasContext = treeCanvas.getContext("2d");
 
 const addNodeButton = document.getElementById("addNodeButton");
 const nodeInput = document.getElementById("nodeInput");
 
-treeCanvasContext.strokeStyle = "black";
-treeCanvasContext.lineWidth = 5;
+// ---------------------------------------------------------------------------------------------------------
+// Style functions
 
-treeCanvasContext.fillStyle = "black";
-treeCanvasContext.font = "42px Arial";
-treeCanvasContext.textAlign = "center";
-treeCanvasContext.textBaseline = "middle";
+function setGlobalDrawingStyle(canvasContext) {
+    canvasContext.strokeStyle = "black";
+    canvasContext.lineWidth = 5;
 
+    canvasContext.fillStyle = "black";
+    canvasContext.font = "42px Arial";
+    canvasContext.textAlign = "center";
+    canvasContext.textBaseline = "middle";
+}
 
-treeCanvasContext.beginPath();
-treeCanvasContext.arc(300, 300, 50, 0, Math.PI * 2);
-treeCanvasContext.stroke();
-treeCanvasContext.fillText("3", 300, 300);
+// ---------------------------------------------------------------------------------------------------------
+// Drawing functions
 
+function drawNode(centerX, centerY, nodeKey) {
+    treeCanvasContext.beginPath();
+    treeCanvasContext.arc(centerX, centerY, 50, 0, Math.PI * 2);
+    treeCanvasContext.stroke();
+    treeCanvasContext.fillText(nodeKey, centerX, centerY);
+}
 
+function drawEdge(fromX, fromY, toX, toY) {
+    treeCanvasContext.beginPath();
+    treeCanvasContext.moveTo(fromX, fromY);
+    treeCanvasContext.lineTo(toX, toY);
+    treeCanvasContext.stroke();
+}
 
-treeCanvasContext.beginPath();
-treeCanvasContext.arc(150, 450, 50, 0, Math.PI * 2);
-treeCanvasContext.stroke();
-treeCanvasContext.fillText("5", 150, 450);
+// ---------------------------------------------------------------------------------------------------------
+// Event listeners
 
+addNodeButton.addEventListener("click", () => { console.log(nodeInput.value); })
 
+// ---------------------------------------------------------------------------------------------------------
+// Main script
 
-treeCanvasContext.beginPath();
-treeCanvasContext.moveTo(250, 350);
-treeCanvasContext.lineTo(200, 400);
-treeCanvasContext.stroke();
+setGlobalDrawingStyle(treeCanvasContext);
 
-addNodeButton.addEventListener("click", () => { console.log(nodeInput.value); });
+drawNode(300, 300, "3");
+drawNode(150, 450, "5");
+drawEdge(250, 350, 200, 400);
