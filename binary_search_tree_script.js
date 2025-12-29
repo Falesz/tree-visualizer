@@ -40,7 +40,7 @@ function drawEdge(fromX, fromY, toX, toY) {
 // ---------------------------------------------------------------------------------------------------------
 // Event listeners
 
-addNodeButton.addEventListener("click", () => { console.log(nodeInput.value); })
+addNodeButton.addEventListener("click", () => { console.log(nodeInput.value); });
 
 // ---------------------------------------------------------------------------------------------------------
 // Main script
