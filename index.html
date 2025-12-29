@@ -9,9 +9,17 @@
 <body>
     <h1>Tree visualizer</h1>
 
-    <canvas id="treeCanvas" width="1200" height="800">
-        Your browser does not support the HTML5 canvas tag.
-    </canvas>
+    <div id="treeContents">
+        <canvas id="treeCanvas" width="1200" height="600">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+        <div id="treeControlPanel">
+            <label for="nodeInput">Enter a number for the node to be inserted:</label>
+            <input type="text" id="nodeInput" placeholder="Example: 13">
+            <button id="addNodeButton">Add to tree</button>
+        </div>
+    </div>
 
     <script src="binary_search_tree_script.js"></script>
 </body>

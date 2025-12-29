@@ -1,6 +1,9 @@
 const treeCanvas = document.getElementById("treeCanvas");
 const treeCanvasContext = treeCanvas.getContext("2d");
 
+const addNodeButton = document.getElementById("addNodeButton");
+const nodeInput = document.getElementById("nodeInput");
+
 treeCanvasContext.strokeStyle = "black";
 treeCanvasContext.lineWidth = 5;
 
@@ -28,3 +31,5 @@ treeCanvasContext.beginPath();
 treeCanvasContext.moveTo(250, 350);
 treeCanvasContext.lineTo(200, 400);
 treeCanvasContext.stroke();
+
+addNodeButton.addEventListener("click", () => { console.log(nodeInput.value); });
